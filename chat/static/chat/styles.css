@@ -1,0 +1,164 @@
+body{
+	background-color:#2E003E;
+}
+.wrapper {
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+.titleContainer {
+    background-color: #222;
+    position: sticky;
+    top: 0; /* This makes it stick to the top of the container */
+    z-index: 10; 
+    width:100% ;
+    height: auto;
+	color:#8BE9FD;
+	border-bottom: 2px solid black;
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.potatoText {
+	font-style: italic;
+	color: #50FA7B;
+}
+
+.FormContainer {
+	background-color: #413e57;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 800px;
+	height: 150px;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+.visuallyHidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.PromptInput {
+	border-radius: 10px;
+	width: 700px;
+	height: 45px;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.PromptContainer {
+	
+	text-align: center;
+	padding-top: 2%;
+}
+
+.submitSection {
+	display: flex;
+	align-items: center;
+	gap: 200px;
+}
+.OutputSection{
+	border-radius: 6px;
+	background-color:#2E003E;
+	padding: 4%;
+}
+.OutputContainer {
+	background-color: #413e57;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 735px;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+.MockPrompt{
+	color:#F8F8F2;
+	margin-left:1%;
+	text-align: left;
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	line-height: 1.5;
+}
+.MockResponse {
+	color:#F8F8F2;
+	text-align: left;
+    margin-left: 1%;
+	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	line-height: 1.5;
+}
+
+.MockPrompt strong{
+	color: #FF79C6;
+} 
+.MockResponse strong {
+	color: #F1FA8C;
+}
+footer {
+	max-width: 100%;
+	padding: 1rem;
+	background-color: #222;
+	color: #fff;
+	
+}
+
+.footer-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.footer-content a {
+	color: #ffb347; /* or whatever your theme color is */
+	text-decoration: none;
+}
+
+.footer-icon img {
+	height: 30px; /* adjust as needed */
+}
+
+
+/* === Mobile Support === */
+@media (max-width: 768px) {
+	.FormContainer,
+	.OutputContainer {
+		width: 100%;
+		height: auto;
+	}
+
+	.PromptInput {
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.PromptContainer {
+		padding-bottom: 2%;
+	}
+
+	.submitSection {
+		flex-direction: column;
+		gap: 10px;
+		align-items: center;  /* Center the submit button */
+	}
+
+	
+	.SubmitButton {
+		width: 100%;
+		padding: 10px;
+		font-size: 18px;
+	}
+}
+
