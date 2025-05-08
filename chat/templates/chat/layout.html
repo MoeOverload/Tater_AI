@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        {%load static%}
+        <!-- Link to external CSS -->
+        <link rel="stylesheet" href="{% static 'chat/styles.css' %}">
+        <title>{%block title%}Tater_AI{%endblock%}</title>
+        
+    </head>
+    <body>
+        <div class="titleContainer">
+			<h1>Welcome to TaterAI 🍠</h1>	
+			<h3 id="desktopSubheading">The Potatoe Prompt Machine, Meant To Be Light Weight And Functional </h3>
+			<h3 id="mobileSubheading">Designed To Run On Even The Slowest Potatoes</h3>
+	</div>
+	<div class="wrapper">
+        <main>
+            {%block content%}
+
+
+            {%endblock%}
+        </main>
+        <br>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>Built by | <a href="#">MoeOverload</a></p>
+            </div>
+            <div class="footer-icon">
+                <a href="https://ko-fi.com/yourlink" target="_blank">
+                    <img alt="Support me on Ko-fi">
+                </a>
+            </div>
+        </div>
+    </footer>
+<!--TODO PUT THIS IN ITS OWN FILE LATER-->
+<script>
+    window.onload = () => {
+        const anchor = document.getElementById("bottom-anchor");
+        anchor?.scrollIntoView({ behavior: "smooth" });
+    };
+</script>
+        
+
+    </body>
+</html>

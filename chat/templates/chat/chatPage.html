@@ -1,0 +1,51 @@
+{%extends "chat/layout.html"%}
+
+    {%block content%}
+        <section class="OutputSection">
+               
+            <div class="OutputContainer">
+                {% for message in chat_history reversed %}
+                <div style="border-bottom: 2px solid black;">
+                    <div class="MockPrompt">
+                        <p><strong>User:</strong> {{ message.user_input }}</p>
+                    </div>
+                    <div class="MockResponse">
+                        <p><strong>TaterAI:</strong> {{ message.ai_response }}</p>
+                        <p><small>{{ message.timestamp }}</small></p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if ai_response %}
+                <div class="ai-response">
+                        <p><strong>Potato AI:</strong> {{ ai_response }}</p>
+                </div>
+                {% endif %}
+                <div id="bottom-anchor"></div>
+
+                <div style="height: 100px;"></div>
+
+            </div>
+                
+        </section>
+            
+        <br><br>
+        <section class="container" >
+            <div class="FormContainer">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="PromptContainer">
+                        <label for="promptInput" class="visuallyHidden">Your prompt</label>
+                        <span class="emojiPrefix" >🍠</span>
+                        <input type="text" id="promptInput" name="prompt" class="PromptInput" value="{{ user_input }}" placeholder="Ask Me Anything!">
+                    </div>
+                    <div class="submitSection">
+                        <button type="submit">Send</button>
+                        <p class="potatoText">Look At The Potato Go</p>
+                    </div>
+						
+						 
+                </form>
+            </div>
+        </section>
+	{%endblock%}	
+    
