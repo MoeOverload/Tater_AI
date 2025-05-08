@@ -2,11 +2,13 @@ body{
 	background-color:#2E003E;
 }
 .wrapper {
-	max-width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 2rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .titleContainer {
@@ -14,7 +16,7 @@ body{
     position: sticky;
     top: 0; /* This makes it stick to the top of the container */
     z-index: 10; 
-    width:100% ;
+    width:auto ;
     height: auto;
 	color:#8BE9FD;
 	border-bottom: 2px solid black;
@@ -28,13 +30,19 @@ body{
 }
 
 .FormContainer {
+    position: fixed;
+    bottom: 50px;
+    left: 8px;
+    right: 8px;
+    z-index: 999;
 	background-color: #413e57;
 	border: 2px solid black;
 	border-radius: 10px;
-	width: 800px;
-	height: 150px;
+	width: auto;
+	max-height: 100px;
 	padding: 1rem;
-	box-sizing: border-box;
+	
+
 }
 
 .visuallyHidden {
@@ -68,10 +76,12 @@ body{
 	align-items: center;
 	gap: 200px;
 }
-.OutputSection{
-	border-radius: 6px;
-	background-color:#2E003E;
-	padding: 4%;
+.OutputSection {
+    border-radius: 6px;
+    background-color: #2E003E;
+    padding: 4%;
+    width: 100%;
+    box-sizing: border-box;
 }
 .OutputContainer {
 	background-color: #413e57;
@@ -106,7 +116,11 @@ body{
 	color: #F1FA8C;
 }
 footer {
-	max-width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+	width: 100%;
+    height:30px;
 	padding: 1rem;
 	background-color: #222;
 	color: #fff;
@@ -127,37 +141,51 @@ footer {
 }
 
 .footer-icon img {
-	height: 30px; /* adjust as needed */
+	height: 10px; /* adjust as needed */
 }
 
 
 /* === Mobile Support === */
 @media (max-width: 768px) {
-	.FormContainer,
+    .titleContainer h3{
+        font-size:small;
+    }
+    .titleContainer h1{
+        font-size: medium;
+    }
+    #desktopSubheading{
+        display: none;
+    }
+	.FormContainer{
+        width: auto;
+        height: auto;
+    }
 	.OutputContainer {
 		width: 100%;
 		height: auto;
 	}
 
 	.PromptInput {
-		width: 100%;
+		width: 70%;
 		box-sizing: border-box;
 	}
 
 	.PromptContainer {
-		padding-bottom: 2%;
+		padding-bottom: 2px;
 	}
 
 	.submitSection {
-		flex-direction: column;
+		flex-direction:row;
 		gap: 10px;
-		align-items: center;  /* Center the submit button */
+        align-items: center;
+        justify-content: center;
+		
 	}
 
 	
 	.SubmitButton {
-		width: 100%;
-		padding: 10px;
+		width: auto;
+		padding: 2px;
 		font-size: 18px;
 	}
 }
