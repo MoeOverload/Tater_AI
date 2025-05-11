@@ -2,8 +2,67 @@
 {%block content%}
 <section>
 	<div>
-		<h1>USER'S HOMEPAGE</h1>
+		
 	</div>
+	<div class="dashboard-container">
+		<!-- Welcome -->
+		<div class="welcome-section">
+			<h2>Welcome, {{ user.username }}!</h2>
+			<p>This is your personalized dashboard or whatever. 🥔</p>
+		</div>
+		<!-- Section: Start a New Chat -->
+		<div class="dashboard-section">
+		  <a class="section-toggle" id="NewChatLink" href="{% url 'CreateChat' %}">➕ Start New Chat</a>
+		  <div style="padding:.2rem;"></div>
+		</div>
+	
+		<!-- Section: Recent Chats -->
+		<div class="dashboard-section" id="chat-history">
+		  <button class="section-toggle" aria-expanded="false">🗨️ Recent Chats</button>
+		  <div class="section-content" hidden>
+			<ul>
+			  <li>Chat with Ollama (Today)</li>
+			  <li>Late night brainstorm (Yesterday)</li>
+			  <li>Idea dump (2 days ago)</li>
+			</ul>
+		  </div>
+		</div>
+	  
+		<!-- Section: Favorite Models -->
+		<div class="dashboard-section" id="fav-models">
+		  <button class="section-toggle" aria-expanded="false">⭐ Favorite Models</button>
+		  <div class="section-content" hidden>
+			<ul>
+			  <li><p><strong class="LLMName">Llama3</strong> (Custom Temp: 0.7)</p> </li>
+			  <li><p><strong class="LLMName">Code Wizard GPT</strong></p></li>
+			  <li><p><strong class="LLMName">SassyBot 9000</strong></p></li>
+			</ul>
+		  </div>
+		</div>
+	  
+		<!-- Section: Settings -->
+		<div class="dashboard-section" >
+		  <button class="section-toggle" aria-expanded="false">⚙️ Settings</button>
+		  <div class="section-content" hidden>
+			<ul>
+			  <li><button class="section-toggle" style="background-color:firebrick;">Clear Chat History</button></li>
+			  <div style="padding: .5rem;"></div>
+			  <li>
+				<form method="post" action="{% url 'logout' %}" style="display: inline; padding:0;">
+					{% csrf_token %}
+					<button type="submit" class="section-toggle" style=" text-decoration: none;">
+					  Logout
+					</button>
+				  </form>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+		<div style="padding-bottom: 30px;"></div>
+	</div>
+	  
+
+
 </section>
 
 {%endblock%}

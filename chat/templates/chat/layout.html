@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         {%load static%}
+        <!--link to javascript file-->
+        <script src="{% static 'chat/script.js' %}" defer></script>
         <!-- Link to external CSS -->
         <link rel="stylesheet" href="{% static 'chat/styles.css' %}">
         <!-- Latest compiled and minified CSS -->
@@ -25,24 +27,46 @@
 			            <h3 id="mobileSubheading">Designed To Run On Even The Slowest Potatoes</h3> 
                     </div>
                     <div>
-                        <nav class="navbar navbar-expand-sm navbar-dark" >
-                            <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                                    <ul class="navbar-nav " style="list-style-type: none;">
-                                        <li class="nav-item"><a class="nav-link" href="{%url 'index'%}">Welcome</a></li>
-                                        <li class="nav-item"><a class="nav-link"  href="{% url 'login'%}">Login</a></li>
-                                        <li class="nav-item"><a class="nav-link"  href="{% url 'userhome' %}">Home</a></li>
-                                        <li class="nav-item"><a class="nav-link"  href="{%url 'CreateChat'%}">New Chat</a></li>
-                                    </ul>
-                                </div>
-                         
+                        <nav class="navbar navbar-expand-sm navbar-dark ">
+                          <div class="container">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                      
+                            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                              <ul class="navbar-nav d-flex align-items-center text-center">
+                                {% if user.is_authenticated %}
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'userhome' username=request.user.username %}">Home</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'CreateChat' %}">New Chat</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <form method="post" action="{% url 'logout' %}" style="display: inline; padding:0;">
+                                      {% csrf_token %}
+                                      <button type="submit" class="nav-link btn btn-link" style="padding: 5px; text-decoration: none;">
+                                        Logout
+                                      </button>
+                                    </form>
+                                  </li>
+                                {% else %}
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'index' %}">Welcome</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'createUser' %}">New User</a>
+                                  </li>
+                                {% endif %}
+                              </ul>
                             </div>
+                          </div>
                         </nav>
-               
-                    </div>
+                      </div>
+                      
 			
         
                 </div>
@@ -56,8 +80,8 @@
                 </main>
                 <br>
             </div>
-        </div>    
-        <footer>
+            
+            <footer>
                 <div class="footer-content">
                     <div class="footer-text">
                         <p>Built by | <a href="#">MoeOverload</a></p>
@@ -68,13 +92,8 @@
                         </a>
                     </div>
                 </div>
-        </footer>
-        <!--TODO PUT THIS IN ITS OWN FILE LATER-->
-        <script>
-            window.onload = () => {
-                const anchor = document.getElementById("bottom-anchor");
-                anchor?.scrollIntoView({ behavior: "smooth" });
-            };
-        </script>
+            </footer>
+        </div>
+        
     </body>
 </html>

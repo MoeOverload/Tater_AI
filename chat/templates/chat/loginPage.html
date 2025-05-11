@@ -2,13 +2,47 @@
 {%block content%}
 
 <section>
-	<div>
-		<h1>LOGIN YOU FUCK
-			
-		</h1>
+	
+		
+
+		<div class="LformContainer">
+			<div >
+				<h3> Please Login</h3>
+			</div>
+			<form method="post">
+				{% csrf_token %}
+				<div>
+					<label>Username:</label>
+					<input type="text" name="username">
+				</div>
+				<div>
+					<label>Password:</label>
+					<input type="password" name="password">
+				</div>
+				<div style="padding: 4%;">
+					<input type="submit" class="btn btn-secondary" value="Login" >
+				</div>
+			</form>
+
+
+		</div>
+	
+	
+</section>
+<br>
+<section>
+	<div class="loginContainer">
+		<div  style="text-align: center; color:#ffb347;">
+			<h5>Not A User?</h5>
+			<a href="{%url 'createUser'%}"><p>Create An Account!</p></a>
+		</div>
+		<div style="text-align: center; color:#ffb347;">
+			<h5>Forgot Password?</h5>
+			<a href=""><p>Recover Password</p></a>
+		</div>
 	</div>
 </section>
-
+<div style="padding:40px"></div>
 
 
 {%endblock%}

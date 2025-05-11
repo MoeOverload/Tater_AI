@@ -2,8 +2,31 @@
 
 {%block content%}
 <section>
-	<div>
-		<h1>CREATE A NEW CHAT</h1>
+	<div class="newChatContainer">
+		<div class=newChatHeading>
+			<h1>Create A New Chat</h1>
+			<p>🥔</p>
+		</div>
+		<div class="LformContainer">
+			<form>
+				{% csrf_token %}
+				<label for="model-select"><h4>Choose Model:</h4></label>
+				<select id="model-select" name="model">
+			  		<option value="llama3">Llama3</option>
+			  		<option value="mistral">Mistral</option>
+			  		<option value="custom">Custom</option>
+				</select>
+	
+				<label for="chat-name"><h4>Chat Title:</h4></label>
+				<input type="text" id="chat-name" name="chat_name">
+				
+				<label for="LLM-nickname"><h4>Name Your AI:</h4></label>
+				<input type="text" id="LLM-nickname" name="LLM-nickname">
+
+				<button type="submit" class="section-toggle">Start Chat</button>
+		  	</form>
+		</div>
+		
 	</div>
 </section>
 

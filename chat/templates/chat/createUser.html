@@ -1,9 +1,37 @@
 {%extends 'chat/layout.html'%}
 {%block content%}
 <section>
-	<div>
-		<h1>CREATE A USER </h1>
+	<div class="newUserContainer">
+		<div class="newUserHeading">
+			<h2>Create A New Account</h2>
+			<p>first time?</p>
+		</div>
+		<div>
+			<form method="post">
+				{% csrf_token%}
+				<div class="newUserFgroup">
+					<label for="email" style="padding-right:25%;">Email</label>
+					<input id="email" type="email" name="email" required>
+				</div>
+				<div class="newUserFgroup">
+					<label for="username">New Username</label>
+					<input id="username" type="text" name="username" required>
+				</div>
+				<div class="newUserFgroup">
+					<label for="password1">New Password</label>
+					<input id="password1" type="password" name="password1" required>
+				</div>				
+				<div class="newUserFgroup">
+					<label for="password2">Re-enter Password</label>
+					<input id="password2" type="password" name="password2" required>
+				</div>
+				<div class="newUserSubmit">
+					<input type="submit" value="Create Account">
+				</div>
+			</form>
+		</div>
 	</div>
+
 </section>
 
 {%endblock%}
