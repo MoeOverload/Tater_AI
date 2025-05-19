@@ -21,7 +21,6 @@ def login_View(request):
             return redirect('userhome', username=user.username)  # Redirect to the logged-in user's home page
         else:
             messages.error(request, 'Invalid username or password.')
-
     return render(request, 'chat/loginPage.html')
 
 
